@@ -43,6 +43,12 @@ class ReviewsController extends Controller
         return redirect()->route('admin.reviews.index')->with('success', 'Review approved successfully.');
     }
 
+    public function disapprove(Reviews $review)
+    {
+        $review->update(['is_approved' => false]);
+        return redirect()->route('admin.reviews.index')->with('success', 'Review disapproved successfully.');
+    }
+
     public function detail($type, $id)
     {
         // Fetch the reviews for the specific zone/attraction
@@ -50,6 +56,17 @@ class ReviewsController extends Controller
 
         // Pass the reviews to the view
         return view('landing.pages.detail', compact('reviews'));
+    }
+
+     public function destroy($id)
+    {
+        $reviews = Reviews::find($id);
+        if ($reviews) {
+            $reviews->delete();
+            return redirect()->route('admin.reviews.index')->with('success', 'Review deleted successfully.');
+        }else {
+            return redirect()->route('admin.reviews.index')->with('error', 'Review not found.');
+        }
     }
 
     

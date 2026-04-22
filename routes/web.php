@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\AttractionsController;
 use App\Http\Controllers\ReviewsController;
-use App\Models\Zone;
+use App\Http\Controllers\AdminController;
 use App\Models\Attractions;
+use App\Models\Zone;
 use App\Models\Reviews;
 
 Route::get('/', function () {
@@ -43,20 +44,17 @@ Route::post('/reviews', [ReviewsController::class, 'store'])->name('reviews.stor
 
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', function () {
-        return view('admin.pages.index');
-    })->name('admin.index');
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
     Route::resource('zones', ZoneController::class);
     Route::resource('attractions', AttractionsController::class);
     Route::resource('reviews', ReviewsController::class);
     Route::patch('/reviews/{review}/approve', [ReviewsController::class, 'approve'])->name('reviews.approve');
+    Route::patch('/reviews/{review}/disapprove', [ReviewsController::class, 'disapprove'])->name('reviews.disapprove');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.pages.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

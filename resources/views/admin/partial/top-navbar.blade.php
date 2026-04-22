@@ -111,15 +111,15 @@
       <!-- Dropdown -->
       <li class="ms-3 dropdown">
         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="{{ asset('storage/admin/assets/images/avatar/avatar-1.jpg') }}" alt="" class="avatar avatar-sm rounded-circle" />
+          <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=random&color=fff&bold=true" alt="{{ Auth::user()->name }}" class="avatar avatar-sm rounded-circle" />
         </a>
         <div class="dropdown-menu dropdown-menu-end dropdown-menu-md p-0">
           <div>
             <div class="d-flex gap-3 align-items-center border-dashed border-bottom px-4 py-4">
-              <img src="{{ asset('storage/admin/assets/images/avatar/avatar-1.jpg') }}" alt="" class="avatar avatar-md rounded-circle" />
+              <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=random&color=fff&bold=true" alt="{{ Auth::user()->name }}" class="avatar avatar-md rounded-circle" />
               <div>
-                <h4 class="mb-0 fs-5">Jitu Chauhan</h4>
-                <p class="mb-0 text-secondar small">@imjituchauhan</p>
+                <h4 class="mb-0 fs-5">{{ Auth::user()->name }}</h4>
+                <p class="mb-0 text-secondar small">{{ Auth::user()->email }}</p>
               </div>
             </div>
             <div class="p-3 d-flex flex-column gap-1">
@@ -183,18 +183,22 @@
               </a>
             </div>
             <div class="border-dashed border-top mb-4 pt-4 px-6">
-              <a href="#!" class="text-secondary d-flex align-items-center gap-2">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-login-2">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M9 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
-                    <path d="M3 12h13l-3 -3" />
-                    <path d="M13 15l3 -3" />
-                  </svg>
-                </span>
-                <span>Logout</span></a>
+              <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                @csrf
+                <button type="submit" class="text-secondary d-flex align-items-center gap-2 border-0 bg-transparent p-0" style="cursor: pointer;">
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-login-2">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M9 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+                      <path d="M3 12h13l-3 -3" />
+                      <path d="M13 15l3 -3" />
+                    </svg>
+                  </span>
+                  <span>Logout</span>
+                </button>
+              </form>
             </div>
           </div>
         </div>

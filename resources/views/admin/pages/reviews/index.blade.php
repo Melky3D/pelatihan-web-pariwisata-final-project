@@ -40,10 +40,19 @@
                                 style="display:inline;">
                                 @csrf
                                 @method('PATCH')
-
                                 <button class="btn btn-success" type="submit"
                                     onclick="return confirm('Approve this review?')">
                                     Approve
+                                </button>
+                            </form>
+                        @else
+                            <form action="{{ route('admin.reviews.disapprove', $review->id) }}" method="POST"
+                                style="display:inline;">
+                                @csrf
+                                @method('PATCH')
+                                <button class="btn btn-warning" type="submit"
+                                    onclick="return confirm('Disapprove this review? It will be hidden from the detail page.')">
+                                    Disapprove
                                 </button>
                             </form>
                         @endif

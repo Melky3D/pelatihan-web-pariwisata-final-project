@@ -15,11 +15,12 @@
       <a class="nav-link" href="{{ route('dashboard') }}"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg"
             width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag">
+            class="icon icon-tabler icons-tabler-outline icon-tabler-layout-dashboard">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
-            <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+            <path d="M4 4h6v8h-6z" />
+            <path d="M14 4h6v4h-6z" />
+            <path d="M14 12h6v8h-6z" />
+            <path d="M4 14h6v8h-6z" />
           </svg></span> <span class="text">Dashboard</span></a>
     </li>
 
@@ -27,11 +28,10 @@
       <a class="nav-link" href="{{ route('admin.zones.index') }}"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg"
             width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag">
+            class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
-            <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
           </svg></span> <span class="text">Zones</span></a>
     </li>
 
@@ -39,11 +39,10 @@
       <a class="nav-link" href="{{ route('admin.attractions.index') }}"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg"
             width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag">
+            class="icon icon-tabler icons-tabler-outline icon-tabler-camera">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
-            <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+            <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
+            <path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
           </svg></span> <span class="text">Attractions</span></a>
     </li>
 
@@ -51,11 +50,9 @@
       <a class="nav-link" href="{{ route('admin.reviews.index') }}"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg"
             width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag">
+            class="icon icon-tabler icons-tabler-outline icon-tabler-star">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
-            <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z" />
           </svg></span> <span class="text">Reviews</span></a>
     </li>
 
@@ -64,10 +61,10 @@
     <li>
       <div class="text-center py-5 upgrade-ui ">
         <div>
-          <img src="{{ asset('storage/admin/assets/images/avatar/avatar-1.jpg') }}" alt="" class="avatar avatar-md rounded-circle">
+          <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=random&color=fff&bold=true" alt="{{ Auth::user()->name }}" class="avatar avatar-md rounded-circle">
           <div class="my-3">
-            <h5 class="mb-1 fs-6">Jitu Chauhan</h5>
-            <span class="text-secondary">Free Version - 1 Month</span>
+            <h5 class="mb-1 fs-6">{{ Auth::user()->name }}</h5>
+            <span class="text-secondary">{{ Auth::user()->email }}</span>
           </div>
           <a href="#!"
             class="btn btn-primary d-none">Buy Pro</a>
@@ -792,10 +789,10 @@
       <li>
         <div class="text-center py-5 upgrade-ui ">
           <div>
-            <img src="{{ asset('storage/admin/assets/images/avatar/avatar-1.jpg') }}" alt="" class="avatar avatar-md rounded-circle">
+            <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=random&color=fff&bold=true" alt="{{ Auth::user()->name }}" class="avatar avatar-md rounded-circle">
             <div class="my-3">
-              <h5 class="mb-1 fs-6">Jitu Chauhan</h5>
-              <span class="text-secondary">Free Version - 1 Month</span>
+              <h5 class="mb-1 fs-6">{{ Auth::user()->name }}</h5>
+              <span class="text-secondary">{{ Auth::user()->email }}</span>
             </div>
             <a href="#!" class="btn btn-primary">Upgrade</a>
 
