@@ -139,6 +139,7 @@
             </div>
             <div class="row">
                 @forelse($zones as $zone)
+                <a href="{{ route('landing', $zone->id) }}">
                     <div class="col-lg-4 col-sm-12 col-xs-12">
                         <div class="single_property">
                             <img src="{{ Storage::url($zone->image) }}" class="img-fluid" alt="" />
@@ -160,7 +161,7 @@
                             </div>
                         </div><!--- END SINGLE PROPERTY -->
                     </div>
-                    <!--- END COL -->
+                    <!--- END COL --></a>
                 @empty
 				@endforelse               
         </div><!--- END ROW -->
@@ -177,6 +178,7 @@
         </div>
         <div class="row">
             @foreach($attractions as $attraction)
+            <a href="{{ route('landing', $attraction->id) }}">
             <div class="col-lg-4 col-sm-12 col-xs-12">
                 <div class="single_property">
                     <img src="{{ Storage::url($attraction->image) }}" class="img-fluid"
@@ -197,7 +199,7 @@
                         <i class="fa fa-star"></i>
                     </div>
                 </div>
-            </div><!--- END  COL-->
+            </div><!--- END  COL--></a>
             @endforeach
         </div><!--- END ROW -->
     </div><!--- END CONTAINER -->

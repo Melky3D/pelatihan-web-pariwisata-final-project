@@ -75,66 +75,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="property_map">
-						<h4>on map</h4>
-						<div class="map-pro">
-							<iframe
-								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.957183635167!2d-74.00402768559431!3d40.71895904512855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598a1316e7a7%3A0x47bb20eb6074b3f0!2sNew%20Work%20City%20-%20(CLOSED)!5e0!3m2!1sbn!2sbd!4v1600305497356!5m2!1sbn!2sbd"
-								style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-						</div>
-					</div>
-					<div class="single_similar_property">
-						<div class="row">
-							<div class="col-md-6 col-sm-6 col-xs-12">
-								<div class="single_property">
-									<img src="{{ asset('storage/landing/assets/img/property/1.jpg') }}" class="img-fluid" alt="" />
-									<div class="single_property_description text-center">
-										<span><i class="fa fa-object-group"></i> 900 sq ft</span>
-										<span><i class="fa fa-bed"></i> 4 Badrooms</span>
-										<span><i class="fa fa-star-o"></i> 2 Baths</span>
-									</div>
-									<div class="single_property_content">
-										<h4><a href="#">2045 B Street</a></h4>
-										<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical.
-										</p>
-
-									</div>
-									<div class="single_property_price">
-										High Meadow Lane Mount Pleasant <span>$ 170,000</span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-									</div>
-								</div><!--- END SINGLE PROPERTY -->
-							</div><!--- END COL -->
-							<div class="col-md-6 col-sm-6 col-xs-12">
-								<div class="single_property">
-									<img src="{{ asset('storage/landing/assets/img/property/2.jpg') }}" class="img-fluid" alt="" />
-									<div class="single_property_description text-center">
-										<span><i class="fa fa-object-group"></i> 900 sq ft</span>
-										<span><i class="fa fa-bed"></i> 4 Badrooms</span>
-										<span><i class="fa fa-star-o"></i> 2 Baths</span>
-									</div>
-									<div class="single_property_content">
-										<h4><a href="#">Lynn Ogden Lane</a></h4>
-										<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical.
-										</p>
-
-									</div>
-									<div class="single_property_price">
-										High Meadow Lane Mount Pleasant <span>$ 170,000</span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-									</div>
-								</div><!--- END SINGLE PROPERTY -->
-							</div><!--- END COL -->
-						</div>
-					</div>
+				
 				</div><!--- END COL -->
 				<div class="col-md-3 col-sm-3 col-xs-12">
 					<div class="single_property_form">
@@ -166,18 +107,6 @@
 								</div>
 							</div>
 						</form>
-					</div>
-					<div class="single_property_form_agent">
-						<div class="single_property_form_agent_profile">
-							<img src="{{ asset('storage/landing/assets/img/team/team-1.jpg') }}" class="img-fluid" alt="" />
-							<h4><i class="fa fa-phone"></i> +88 123 123 123</h4>
-							<h4><a href="#">info@example.com</a></h4>
-						</div>
-						<div class="single_property_form_agent_profile">
-							<img src="{{ asset('storage/landing/assets/img/team/team-2.jpg') }}" class="img-fluid" alt="" />
-							<h4><i class="fa fa-phone"></i> +88 123 123 123</h4>
-							<h4><a href="#">info@example.com</a></h4>
-						</div>
 					</div>
 				</div><!--- END COL -->
 			</div>
