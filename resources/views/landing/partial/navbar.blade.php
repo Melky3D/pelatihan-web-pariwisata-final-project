@@ -51,7 +51,7 @@
 									<li><a href="blog-post.html" class="nav-link">Blog Single</a></li>
 								</ul>
 							</li>
-							<li><a class="nav-link" href="contact.html">Contact</a></li>
+							<li><a class="nav-link" href="{{ route('login') }}">LOGIN</a></li>
 						</ul>
 					</nav>
 				</div>

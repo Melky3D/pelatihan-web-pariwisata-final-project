@@ -31,7 +31,7 @@ class ZoneController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
             'price_range' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
@@ -55,7 +55,7 @@ class ZoneController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
             'price_range' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:2048'
         ]);
 
         $zones = Zone::find($id);
