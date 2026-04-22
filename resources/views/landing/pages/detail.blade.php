@@ -7,7 +7,7 @@
 			<div class="col-lg-10 offset-lg-1 col-xs-12 text-center">
 				<div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s"
 					data-wow-offset="0">
-					<h1>Single Property</h1>
+					<h1>{{ $item->name }}</h1>
 				</div><!-- //.HERO-TEXT -->
 			</div><!--- END COL -->
 		</div><!--- END CONTAINER -->
@@ -20,27 +20,19 @@
 			<div class="row">
 				<div class="col-md-9 col-sm-9 col-xs-12">
 					<div class="property_single_details_slide">
-						<img src="{{ asset('storage/landing/assets/img/2.jpg') }}" class="img-fluid" alt="About-Slide">
+						<img src="{{ Storage::url($item->image) }}" class="img-fluid" alt="About-Slide">
 					</div>
 					<div class="property_single_details_price">
-						<h1>2045 B Street</h1>
-						<h4>$235,254</h4>
-						<p>2369 Robinson Lane Jackson, OH 45640</p>
+						<h1>{{ $item->name }}</h1>
+						<h4>Rp. {{ $itemType === 'attraction' ? number_format((float)$item->ticket_price, 0, ',', '.') : number_format((float)$item->price_range, 0, ',', '.') }}</h4>
 						<ul>
-							<li><i class="fa fa-check"></i> 4 bed rooms</li>
-							<li><i class="fa fa-check"></i> 1 garage</li>
-							<li><i class="fa fa-check"></i> 960 sq ft</li>
+							<li><i class="fa fa-check"></i> {{ ucfirst($itemType) }} Rating</li>
+							<li><i class="fa fa-check"></i> Type: {{ ucfirst($itemType) }}</li>
 						</ul>
 					</div>
 					<div class="property_single_details_description">
-						<h4>Property description</h4>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-							been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-							galley of type and scrambled it to make a type specimen book. It has survived not only five
-							centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-							It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-							passages, and more recently with desktop publishing software like Aldus PageMaker including
-							versions of Lorem Ipsum.</p>
+						<h4>About This {{ ucfirst($itemType) }}</h4>
+						<p>{{ $item->description }}</p>
 					</div>
 					<div class="property_info">
 						<div class="row">
@@ -79,30 +71,59 @@
 				</div><!--- END COL -->
 				<div class="col-md-3 col-sm-3 col-xs-12">
 					<div class="single_property_form">
-						<h4>Enquire here</h4>
-						<form class="form" name="enq" method="post" action="contact.php"
-							onsubmit="return validation();">
+						<h4>Share Your Review</h4>
+						@if($errors->any())
+							<div class="alert alert-danger">
+								<ul>
+									@foreach($errors->all() as $error)
+										<li>{{ $error }}</li>
+									@endforeach
+								</ul>
+							</div>
+						@endif
+						@if(session('success'))
+							<div class="alert alert-success">{{ session('success') }}</div>
+						@endif
+						<form class="form" method="POST" action="{{ route('admin.reviews.store') }}">
+							@csrf
+				
+							<input type="hidden" name="reviewable_type" value="{{ $itemType === 'attraction' ? 'App\\Models\\Attractions' : 'App\\Models\\Zone' }}">
+							<input type="hidden" name="reviewable_id" value="{{ $item->id }}">
 							<div class="row">
 								<div class="form-group col-md-12">
-									<input type="text" name="name" class="form-control" id="first-name"
-										placeholder="Name" required="required">
+									<input type="text" name="visitor_name" class="form-control" id="first-name"
+										placeholder="Name" required="required" value="{{ old('visitor_name') }}">
 								</div>
 								<div class="form-group col-md-12">
-									<input type="email" name="email" class="form-control" id="email" placeholder="Email"
-										required="required">
+									<input type="email" name="visitor_email" class="form-control" id="email" placeholder="Email"
+										required="required" value="{{ old('visitor_email') }}">
 								</div>
 								<div class="form-group col-md-12">
-									<input type="text" name="phone" class="form-control" id="phone" placeholder="Phone"
-										required="required">
+									<label>Rating</label>
+									<div class="rating-input">
+										@for($i = 1; $i <= 5; $i++)
+											<input type="radio" id="star{{ $i }}" name="rating" value="{{ $i }}" 
+												{{ old('rating') == $i ? 'checked' : '' }}>
+											<label for="star{{ $i }}" title="{{ $i }} star(s)">
+												<i class="fa fa-star"></i>
+											</label>
+										@endfor
+									</div>
+									@error('rating')
+										<span class="text-danger">{{ $message }}</span>
+									@enderror
 								</div>
 								<div class="form-group col-md-12 mbnone">
-									<textarea rows="6" name="message" class="form-control" id="description"
-										placeholder="Your Message" required="required"></textarea>
+									<textarea rows="6" name="comment" class="form-control" id="description"
+										placeholder="Your Review" required="required">{{ old('comment') }}</textarea>
+									@error('comment')
+										<span class="text-danger">{{ $message }}</span>
+									@enderror
 								</div>
 								<div class="col-md-12">
 									<div class="actions">
-										<input type="submit" value="Send message" name="submit" id="submitButton"
-											class="btn btn-lg btn-contact-bg" title="Submit Your Message!" />
+										<input type="submit" value="Submit Review" name="submit" id="submitButton"
+											class="btn btn-lg btn-contact-bg" title="Submit Your Review!" />
 									</div>
 								</div>
 							</div>

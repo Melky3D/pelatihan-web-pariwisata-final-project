@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('visitor_email');
             $table->tinyInteger('rating')->unsigned();
             $table->text('comment');
-            $table->boolean('its_approved')->default(false);
+            $table->boolean('is_approved')->default(false);
             $table->timestamps();
 
             $table->index(['reviewable_type', 'reviewable_id', 'is_approved']);
