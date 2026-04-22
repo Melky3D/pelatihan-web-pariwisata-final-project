@@ -3,11 +3,15 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZoneController;
+use App\Http\Controllers\AttractionsController;
 use App\Models\Zone;
+use App\Models\Attractions;
 
 Route::get('/', function () {
+
 $zones = Zone::all();
-    return view('landing.pages.index', compact('zones'));
+$attractions = Attractions::all();
+    return view('landing.pages.index', compact('zones', 'attractions'));
 });
 
 Route::get('/detail', function () {
@@ -16,9 +20,10 @@ Route::get('/detail', function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', function () {
-        return view('admin.pages.index');
-    })->name('admin.index');
+    return view('admin.pages.index'); })->name('admin.index');
+
     Route::resource('zones', ZoneController::class);
+    Route::resource('attractions', AttractionsController::class);
 });
 
 Route::get('/dashboard', function () {

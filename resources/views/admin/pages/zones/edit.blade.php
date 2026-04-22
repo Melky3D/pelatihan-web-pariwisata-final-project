@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
 
-<h1>Create New Zone</h1>
+<h1>Edit Zone</h1>
 
 <a href="{{ route('admin.zones.index') }}">Back to Zones</a><p>
 

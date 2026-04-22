@@ -2,20 +2,20 @@
 @section('content')
 
 
-<a href="{{ route('admin.zones.index') }}">Back to Zones</a><p>
+<a href="{{ route('admin.attractions.index') }}">Back to Attractions</a><p>
     <!-- Detail Content -->
     <section class="pb-5">
         <div class="container">
             <div class="detail-card">
                 <h2><i class="bi bi-info-circle-fill text-primary"></i> Informasi Destinasi</h2>
 
-                @if ($zones->image)
+                @if ($attractions->image)
                     <div class="detail-image">
-                        <img src="{{ asset('storage/' . $zones->image) }}" alt="Gambar {{ $zones->name }}">
+                        <img src="{{ asset('storage/' . $attractions->image) }}" alt="Gambar {{ $attractions->name }}">
                     </div>
                 @else
                     <div class="detail-placeholder">
-                        Tidak ada gambar Zones tersedia.
+                        Tidak ada gambar Attractions tersedia.
                     </div>
                 @endif
 
@@ -28,7 +28,7 @@
                             </div>
                             <div class="info-content">
                                 <div class="info-label">Name</div>
-                                <div class="info-value">{{ $zones->name }}</div>
+                                <div class="info-value">{{ $attractions->name }}</div>
                             </div>
                         </div>
 
@@ -38,7 +38,7 @@
                             </div>
                             <div class="info-content">
                                 <div class="info-label">Deskripsi</div>
-                                <div class="info-value">{{ $zones->description }}</div>
+                                <div class="info-value">{{ $attractions->description }}</div>
                             </div>
                         </div>
 
@@ -49,7 +49,7 @@
                             </div>
                             <div class="info-content">
                                 <div class="info-label">Price Range</div>
-                                <div class="info-value">{{ $zones->price_range }}</div>
+                                <div class="info-value">{{ $attractions->ticket_price }}</div>
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
                             </div>
                             <div class="info-content">
                                 <div class="info-label">Created At</div>
-                                <div class="info-value">{{ $zones->created_at }}</div>
+                                <div class="info-value">{{ $attractions->created_at }}</div>
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@
                             </div>
                             <div class="info-content">
                                 <div class="info-label">Updated At</div>
-                                <div class="info-value">{{ $zones->updated_at }}</div>
+                                <div class="info-value">{{ $attractions->updated_at }}</div>
                             </div>
                         </div>
 
