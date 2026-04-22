@@ -38,31 +38,28 @@
 						<div class="row">
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="single_property_list">
-									<h4>Amenities</h4>
-									<ul class="single_property_list_mr">
-										<li><i class="fa fa-check"></i> Video</li>
-										<li><i class="fa fa-check"></i> Hairdryer</li>
-										<li><i class="fa fa-check"></i> Cot</li>
-										<li><i class="fa fa-check"></i> Dishwasher</li>
-										<li><i class="fa fa-check"></i> Parquet</li>
-										<li><i class="fa fa-check"></i> Iron</li>
-									</ul>
-									<ul class="single_property_list_mr">
-										<li><i class="fa fa-check"></i> Air conditioning</li>
-										<li><i class="fa fa-check"></i> Cable TV</li>
-										<li><i class="fa fa-check"></i> Grill</li>
-										<li><i class="fa fa-check"></i> Juicer</li>
-										<li><i class="fa fa-check"></i> Use of pool</li>
-										<li><i class="fa fa-check"></i> Toaster</li>
-									</ul>
-									<ul>
-										<li><i class="fa fa-check"></i> Video</li>
-										<li><i class="fa fa-check"></i> Hairdryer</li>
-										<li><i class="fa fa-check"></i> Cot</li>
-										<li><i class="fa fa-check"></i> Dishwasher</li>
-										<li><i class="fa fa-check"></i> Parquet</li>
-										<li><i class="fa fa-check"></i> Iron</li>
-									</ul>
+									<h4>Reviews</h4>
+									@if($approvedReviews->count() > 0)
+										@foreach($approvedReviews as $review)
+											<div class="review-item" style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+												<div style="margin-bottom: 10px;">
+													<strong>{{ $review->visitor_name }}</strong>
+													<div style="color: #ffc107;">
+														@for($i = 0; $i < $review->rating; $i++)
+															<i class="fa fa-star"></i>
+														@endfor
+														@for($i = $review->rating; $i < 5; $i++)
+															<i class="fa fa-star-o"></i>
+														@endfor
+													</div>
+												</div>
+												<p style="margin: 0; color: #666;">{{ $review->comment }}</p>
+												<small style="color: #999;">{{ $review->created_at->format('d M Y') }}</small>
+											</div>
+										@endforeach
+									@else
+										<p style="color: #999;">No reviews yet. Be the first to share your experience!</p>
+									@endif
 								</div>
 							</div>
 						</div>
@@ -84,7 +81,7 @@
 						@if(session('success'))
 							<div class="alert alert-success">{{ session('success') }}</div>
 						@endif
-						<form class="form" method="POST" action="{{ route('admin.reviews.store') }}">
+						<form class="form" method="POST" action="{{ route('reviews.store') }}">
 							@csrf
 				
 							<input type="hidden" name="reviewable_type" value="{{ $itemType === 'attraction' ? 'App\\Models\\Attractions' : 'App\\Models\\Zone' }}">

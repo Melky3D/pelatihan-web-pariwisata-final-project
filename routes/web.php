@@ -38,8 +38,8 @@ Route::get('/detail/{type}/{id}', function ($type, $id) {
 
 
 
-Route::get('/reviews/detail/{type}/{id}', 'ReviewsController@detail')->name('landing.reviews.detail');
-Route::patch('/admin/reviews/{review}/approve', 'ReviewsController@approve')->name('admin.reviews.approve');
+Route::get('/reviews/detail/{type}/{id}', [ReviewsController::class, 'detail'])->name('landing.reviews.detail');
+Route::post('/reviews', [ReviewsController::class, 'store'])->name('reviews.store');
 
 
 

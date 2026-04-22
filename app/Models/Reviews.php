@@ -38,8 +38,8 @@ class Reviews extends Model
         return $this->isAttractionReview() ? $this->reviewable : null;
     }
 
-    public function getZoneAttribute(): ?Zone
+    public function isZoneReview(): bool
     {
-       return $this->isZoneReview() ? $this->reviewable : null;
+        return $this->reviewable_type === Zone::class;
     }
 }

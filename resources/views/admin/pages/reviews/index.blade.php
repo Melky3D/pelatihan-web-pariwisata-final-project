@@ -19,13 +19,12 @@
             @foreach ($reviews as $review)
                 <tr>
                     <td>{{ $review->id }}</td>
-                    <td>{{ $review->commentable_type === 'App\Models\Zone' ? 'Zone' : 'Attraction' }}</td>
-                    <td>{{ $review->commentable_type === 'App\Models\Zone' ? $review->zone->name : $review->attraction->name }}
-                    </td>
+                    <td>{{ $review->reviewable_type === 'App\Models\Zone' ? 'Zone' : 'Attraction' }}</td>
+                    <td>{{ $review->reviewable->name ?? 'N/A' }}</td>
                     <td>{{ $review->visitor_name }}</td>
                     <td>{{ $review->visitor_email }}</td>
                     <td>{{ $review->comment }}</td>
-                    <td>(⭐ {{ $review->rating }})</td>
+                    <td>(⭐ {{ $review->rating }} )</td>
                     <td>{{ $review->is_approved ? 'Approved' : 'Pending' }}</td>
                     <td>
 

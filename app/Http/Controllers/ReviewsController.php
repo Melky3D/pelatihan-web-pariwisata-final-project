@@ -9,7 +9,7 @@ class ReviewsController extends Controller
 {
     public function index()
     {
-        $reviews = Reviews::latest()->paginate(10);
+        $reviews = Reviews::with('reviewable')->latest()->paginate(10);
         return view('admin.pages.reviews.index', compact('reviews'));
     }
 
@@ -37,27 +37,19 @@ class ReviewsController extends Controller
         return redirect()->back()->with('success', 'Your review has been submitted and is pending approval.');
     }
 
-    public function destroy(Reviews $review)
+    public function approve(Reviews $review)
     {
-        $review->delete();
-        return redirect()->route('admin.reviews.index')->with('success', 'Review deleted successfully.');
+        $review->update(['is_approved' => true]);
+        return redirect()->route('admin.reviews.index')->with('success', 'Review approved successfully.');
     }
 
     public function detail($type, $id)
-{
-    // Fetch the reviews for the specific zone/attraction
-    $reviews = Reviews::where('reviewable_type', $type)->where('reviewable_id', $id)->get();
-
-    // Pass the reviews to the view
-    return view('landing.pages.detail', compact('reviews'));
-}
-
-    public function approve(Reviews $review)
     {
-        $review->is_approved = true;
-        $review->save();
-        return redirect()->route('admin.reviews.index', ['itemType' => $review->reviewable_type, 'id' => $review->reviewable_id])
-            ->with('success', 'Review approved successfully.');
+        // Fetch the reviews for the specific zone/attraction
+        $reviews = Reviews::where('reviewable_type', $type)->where('reviewable_id', $id)->get();
+
+        // Pass the reviews to the view
+        return view('landing.pages.detail', compact('reviews'));
     }
 
     
