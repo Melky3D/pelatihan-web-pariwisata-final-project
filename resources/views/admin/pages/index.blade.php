@@ -27,15 +27,7 @@
                 <div class="d-flex justify-content-between align-items-center lh-1">
                   <div class="fs-3 fw-bold">{{ $totalZones }}</div>
                   <div class="text-success small">
-                    <span>Active</span>
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-check">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M5 12l5 5l10 -10" />
-                      </svg>
-                    </span>
+                    <a href="{{ route('admin.zones.index') }}" class="btn btn-sm btn-outline-info d-flex align-items-center gap-1">Go To Zones</a>
                   </div>
                 </div>
               </div>
@@ -61,15 +53,8 @@
                 <div class="d-flex justify-content-between align-items-center lh-1">
                   <div class="fs-3 fw-bold">{{ $totalAttractions }}</div>
                   <div class="text-success small">
-                    <span>Active</span>
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-check">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M5 12l5 5l10 -10" />
-                      </svg>
-                    </span>
+              <a href="{{ route('admin.attractions.index') }}" class="btn btn-sm btn-outline-warning d-flex align-items-center gap-1">Go To Attractions</a>
+
                   </div>
                 </div>
               </div>
@@ -95,16 +80,8 @@
                 <div class="d-flex justify-content-between align-items-center lh-1">
                   <div class="fs-3 fw-bold">{{ $totalPendingReviews }}</div>
                   <div class="text-warning small">
-                    <span>Waiting</span>
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-clock">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 12a9 9 0 0 0 9 9a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9" />
-                        <path d="M12 7v5l3 3" />
-                      </svg>
-                    </span>
+        <a href="{{ route('admin.reviews.index') }}" class="btn btn-sm btn-outline-primary d-flex align-items-center gap-1">Go To Reviews</a>
+
                   </div>
                 </div>
               </div>
@@ -130,15 +107,7 @@
                 <div class="d-flex justify-content-between align-items-center lh-1">
                   <div class="fs-3 fw-bold">{{ $totalApprovedReviews }}</div>
                   <div class="text-success small">
-                    <span>Approved</span>
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-check">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M5 12l5 5l10 -10" />
-                      </svg>
-                    </span>
+                     <a href="{{ route('admin.reviews.index') }}" class="btn btn-sm btn-outline-primary d-flex align-items-center gap-1">Go To Reviews</a>
                   </div>
                 </div>
               </div>

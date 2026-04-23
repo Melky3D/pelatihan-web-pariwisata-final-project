@@ -35,7 +35,8 @@ Route::get('/detail/{type}/{id}', function ($type, $id) {
         ->orderBy('created_at', 'desc')
         ->get();
 
-    return view('landing.pages.detail', compact('item', 'itemType', 'approvedReviews'));})->name('landing');
+    return view('landing.pages.detail', compact('item', 'itemType', 'approvedReviews', 'modelClass'));
+})->name('landing');
 
 
 

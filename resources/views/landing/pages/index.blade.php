@@ -144,7 +144,7 @@
                         <div class="single_property">
                             <img src="{{ Storage::url($zone->image) }}" class="img-fluid" alt="" />
                             <div class="single_property_description text-center">
-                                <span><i class="fa fa-object-group"></i>Attraction : </span>
+                                <span><i class="fa fa-object-group"></i>Attraction</span>
                             
                             </div>
                             <div class="single_property_content">
@@ -184,7 +184,7 @@
                     <img src="{{ Storage::url($attraction->image) }}" class="img-fluid"
                         alt="" />
                     <div class="single_property_description text-center">
-                        <span><i class="fa fa-object-group"></i> Zones :</span>
+                        <span><i class="fa fa-object-group"></i> Zones</span>
                     </div>
                      <div class="single_property_content">
                                 <h4><a href="#">{{ $attraction->name }}</a></h4>
